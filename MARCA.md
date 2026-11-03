@@ -77,7 +77,7 @@ sobra una.
 
 ## Tono
 
-Pocas palabras, seguras, en español de Colombia, de usted. Hablan del
+Pocas palabras, seguras, en español de Colombia, de tú (como en sus publicaciones: «Te invitamos…», «Agenda tu cita»). Hablan del
 resultado (cómo se vive la casa, cómo se ve de noche), no del proceso.
 Ejemplos: «Casas que se encienden al caer la tarde.» «Diseñamos, construimos
 y amoblamos. Una sola firma de principio a fin.»
