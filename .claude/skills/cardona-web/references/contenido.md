@@ -42,8 +42,8 @@ Los **servicios**, en el orden de la sección `id="servicios"`: 01 Diseño arqui
 2. En `proyectos/<slug>/index.html`, cambia en este orden (todo lo demás se queda igual, incluido el pie y el `noindex`):
    - `<title>`: `<Nombre> · Cardona Arquitectura e Interiorismo`.
    - `<meta name="description" content="…">`: una frase de unos 150 caracteres, como la de Tocarinda: `Tocarinda: un hogar contemporáneo de 202,39 m² en medio de la sabana de Bogotá, diseñado por Cardona Arquitectura e Interiorismo.`
-   - `<link rel="preload" as="image" href="../../assets/img/web/<slug>-1.jpg">`: la foto de portada.
-   - **Portada** (`obra-portada`): el `src`, el `alt` y el `width`/`height` reales de la foto; la ruta `Proyectos / 04` con el número de su tarjeta; el `<h1>`; la bajada (`obra-bajada`, una frase); la **ficha corta** (cuatro filas: Ubicación, Área, Tipo, Año). Formato de una fila:
+   - `<link rel="preload" as="image" href="../../assets/img/web/<slug>-1.jpg">`: la foto de portada. **Quita** los atributos `imagesrcset` e `imagesizes` (apuntan a las WebP de Tocarinda; ver «Fotos»).
+   - **Portada** (`obra-portada`): el `src`, el `alt` y el `width`/`height` reales de la foto (y quita `srcset` y `sizes`, ver «Fotos»); la ruta `Proyectos / <Nombre>` (`Proyectos / Tocarinda`); el `<h1>`; la bajada (`obra-bajada`, una frase); la **ficha corta** (cuatro filas: Ubicación, Área, Tipo, Año). Formato de una fila:
      ```html
      <div><dt class="etiqueta">Área</dt><dd>202,39 m²</dd></div>
      ```
@@ -57,7 +57,7 @@ Los **servicios**, en el orden de la sección `id="servicios"`: 01 Diseño arqui
      El `alt` de la galería es también el pie que se ve al ampliar la foto. La guía (manual, 8.6) pide que el pie empiece por «Render · » o «Fotografía · »: hazlo así en las páginas nuevas, aunque la galería de Tocarinda todavía no lo tenga (eso lo corrige 16 Ball).
    - **Cierre** (`obra-cierre`): una frase del proyecto.
    - **Siguiente proyecto** (`obra-siguiente`): la foto, el número y el nombre del proyecto de la **tarjeta siguiente** en la portada (después de la 05 viene la 01). Si ese proyecto tiene página, el `href` es `../<su-slug>/`; si no, se queda `../../#proyectos`.
-   - **Si el proyecto todavía no tiene tarjeta** (solo índice o en borrador): la ruta queda `Proyectos` sin número y el siguiente proyecto es la tarjeta 01.
+   - **Si el proyecto todavía no tiene tarjeta** (solo índice o en borrador): el siguiente proyecto es la tarjeta 01.
    - **Cita** (`obra-cita`): en el enlace de WhatsApp cambia **solo el nombre del proyecto dentro del texto** que va después de `?text=` (codificado: espacio `%20`, coma `%2C`, punto `.`; las tildes, por ejemplo `á` = `%C3%A1`). El número no se toca. Ejemplo real:
      `https://wa.me/573012904059?text=Hola%2C%20Cardona.%20Vi%20el%20proyecto%20Tocarinda%20y%20me%20interesa%20agendar%20una%20cita.`
 
@@ -88,7 +88,7 @@ La retícula tiene **cinco lugares** y no se le agregan más (un sexto lugar es 
   </article>
   ```
 - La etiqueta lleva el número de la posición y uno o dos datos reales (`04 · Sabana de Bogotá · 202,39 m²`). El párrafo, una o dos frases.
-- **Los números viven en varios lugares.** Si un proyecto cambia de posición, actualiza: la etiqueta de la tarjeta, la ruta `Proyectos / 0N` de su página y el «Siguiente proyecto · 0N» de **todas** las páginas de proyecto que lo nombren (hoy, `proyectos/tocarinda/index.html` apunta a «03 · Casa Imperium»).
+- **Los números viven en varios lugares.** Si un proyecto cambia de posición, actualiza: la etiqueta de la tarjeta, y el «Siguiente proyecto · 0N» de **todas** las páginas de proyecto que lo nombren (hoy, `proyectos/tocarinda/index.html` apunta a «03 · Casa Imperium»).
 
 **Casos:**
 - **A + B, proyecto nuevo con página:** la página nueva y su tarjeta con el formato de enlace.
@@ -109,15 +109,16 @@ La retícula tiene **cinco lugares** y no se le agregan más (un sexto lugar es 
 
 ## Fotos
 
-- Las fotos del sitio están en `assets/img/web/`, en JPG. Las reglas (render o fotografía, crédito, permisos, lo que nunca se publica) están en `references/marca.md` y en el manual, sección 08.
+- Las fotos del sitio están en `assets/img/web/`, en JPG. Las de hoy tienen además dos copias en WebP (`<nombre>.webp` y `<nombre>-800.webp`) que el navegador prefiere porque pesan menos; las genera 16 Ball y las nombra el atributo `srcset` de la etiqueta.
+- **Fotos nuevas:** solo el JPG, con una etiqueta `<img>` **sin** `srcset` ni `sizes`. Si copiaste una etiqueta que los trae, quítalos. Cuando 16 Ball revise el sitio, genera las WebP. Las reglas (render o fotografía, crédito, permisos, lo que nunca se publica) están en `references/marca.md` y en el manual, sección 08.
 - **Nombre:** `<slug>-<n>.jpg`, en minúsculas, sin tildes ni espacios (`casa-zenith-1.jpg`). La 1 es la de portada.
 - **Tamaño y peso** (lo que usan las fotos de hoy): fotos de página de proyecto, **1440 px** de ancho; tarjetas y recorrido, **1300 px**; fotos a todo lo ancho, hasta **2000 px**. JPG de calidad 75–80, **máximo 250 KB** cada una.
 - **Este repositorio no tiene cómo reducir fotos.** Lo único prohibido es el script `herramientas/optimizar-imagenes.mjs` (sobrescribe todas las fotos del sitio) e instalar paquetes en el repositorio. Si tu herramienta sabe reducir una imagen por su cuenta, fuera del repositorio, puedes hacerlo con las medidas de arriba. Si no, pídele a Nicolás que la exporte así (desde Lightroom, o en https://squoosh.app, que trabaja en su navegador: «Resize» al ancho indicado y calidad 78) o pásala a 16 Ball. Mientras no tenga el tamaño y el peso, la página queda en borrador. Revisa el peso con `ls -l assets/img/web/<archivo>`.
 - **Las reglas de fotografía del manual (sección 08)** son para cuando se hace una sesión de fotos. No rechaces una foto de Nicolás porque no cumple alguna (por ejemplo, un interior de día): publícala si tiene permiso, tamaño y su etiqueta de render o fotografía, y si notas algo que conviene mejorar, díselo como sugerencia.
-- **Reemplazar una foto:** pon la nueva con **el mismo nombre**. Cambia en todos los lugares donde aparece: búscalos antes con `git grep -n "<archivo>"` y díselos a Nicolás. Por ejemplo, `showroom.jpg` está dos veces en la sección Showroom, en la tarjeta 01 y en el manual; `imperium-1.jpg`, en la tarjeta 03, en el «Siguiente proyecto» de Tocarinda y en el manual. Si la proporción cambia, actualiza el `width` y el `height` de la etiqueta donde los haya.
+- **Reemplazar una foto:** pon la nueva con **el mismo nombre**. Cambia en todos los lugares donde aparece: búscalos antes con `git grep -n "<archivo>"` y díselos a Nicolás. Por ejemplo, `showroom.jpg` está dos veces en la sección Showroom, en la tarjeta 01 y en el manual; `imperium-1.jpg`, en la tarjeta 03, en el «Siguiente proyecto» de Tocarinda y en el manual. Si la proporción cambia, actualiza el `width` y el `height` de la etiqueta donde los haya. **Si la etiqueta trae `srcset`, quítale `srcset` y `sizes`** en cada lugar donde aparece la foto (y `imagesrcset` e `imagesizes` del `preload`, si es la de portada), y borra sus dos WebP (`git rm assets/img/web/<nombre>.webp assets/img/web/<nombre>-800.webp`): si no, el navegador seguirá mostrando la foto vieja. Avísale a 16 Ball para que genere las nuevas.
 - **No reemplaces sin 16 Ball:** `hero-casa.jpg` (la portada recorta la silueta de esa casa exacta para el efecto del nombre) ni las fotos del recorrido `doble-altura-*.jpg` si cambia el espacio que muestran (los nombres «Sala», «Doble altura», «Estar»… están en el JavaScript). Agregar o quitar fotos del recorrido también es de 16 Ball.
 - **El `alt`** describe lo que se ve, en una frase sin punto final, sin «imagen de»: `Sala en doble altura con chimenea en mármol y sillas curvas blancas`. En la galería de una página de proyecto, empieza por «Render · » o «Fotografía · ».
-- Borrar una foto del repositorio: solo si `git grep` confirma que ya no se usa en ninguna página ni en el manual.
+- Borrar una foto del repositorio (el JPG y sus WebP): solo si `git grep` confirma que ya no se usa en ninguna página ni en el manual.
 
 ## Un testimonio
 

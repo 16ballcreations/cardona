@@ -1,5 +1,6 @@
 /* Pasa las imágenes de la propuesta a JPG para la web (ancho máximo y calidad
-   según el uso) y las deja en assets/img/web/. Cuando el cliente mande las
+   según el uso) y las deja en assets/img/web/, con dos WebP al lado para el
+   srcset: <nombre>.webp (mismo ancho) y <nombre>-800.webp. Cuando el cliente mande las
    fotos originales, se ponen en la lista y se vuelve a correr:
    node herramientas/optimizar-imagenes.mjs (con sharp instalado) */
 import sharp from "sharp";
@@ -41,5 +42,8 @@ for(const [origen, destino, ancho] of LISTA){
     .resize({ width: ancho, withoutEnlargement: true })
     .jpeg({ quality: 78, mozjpeg: true, progressive: true })
     .toFile(join(out, destino));
-  console.log(`${destino}: ${info.width}x${info.height}, ${Math.round(info.size / 1024)} KB`);
+  const base = join(out, destino.replace(/.jpg$/, ""));
+  const webp = await sharp(join(img, origen)).resize({ width: ancho, withoutEnlargement: true }).webp({ quality: 74 }).toFile(`${base}.webp`);
+  const chica = await sharp(join(img, origen)).resize({ width: 800, withoutEnlargement: true }).webp({ quality: 72 }).toFile(`${base}-800.webp`);
+  console.log(`${destino}: ${info.width}x${info.height}, ${Math.round(info.size / 1024)} KB · webp ${Math.round(webp.size / 1024)} KB · 800 ${Math.round(chica.size / 1024)} KB`);
 }

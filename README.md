@@ -42,7 +42,7 @@ lugar de píldoras, vidrio y esquinas redondeadas.
 | `assets/img/marca/` | Logotipo (oscuro y claro) y sello de tres losas |
 | `assets/img/web/` | Fotos optimizadas que usa la página |
 | `herramientas/servir.mjs` | Servidor local: `node herramientas/servir.mjs 4330` |
-| `herramientas/optimizar-imagenes.mjs` | Pasa las fotos originales a `assets/img/web/` (necesita `sharp`) |
+| `herramientas/optimizar-imagenes.mjs` | Pasa las fotos originales a `assets/img/web/`, en JPG y dos WebP para el `srcset` (necesita `sharp`) |
 
 La investigación (`investigacion/`) y las fotos originales de Instagram no se suben: nombran a
 personas del cliente y son material de trabajo.

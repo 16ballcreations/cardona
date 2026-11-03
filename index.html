@@ -10,7 +10,9 @@
   <link rel="icon" href="assets/img/marca/sello.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/img/web/hero-casa.jpg">
+  <link rel="preload" as="image" href="assets/img/web/hero-casa.jpg" imagesrcset="assets/img/web/hero-casa-800.webp 800w, assets/img/web/hero-casa.webp 940w" imagesizes="(max-width: 720px) 112vw, 72svh">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400&display=swap">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="assets/css/marca.css">
   <link rel="stylesheet" href="assets/css/sitio.css">
 </head>
@@ -52,12 +54,12 @@
     <section class="portada" id="inicio">
       <div class="portada-escena">
         <div class="portada-casa">
-          <img class="portada-foto" src="assets/img/web/hero-casa.jpg" alt="Residencia de tres plantas en travertino con losas oscuras y luz LED lineal, al atardecer" width="940" height="940">
+          <img class="portada-foto" src="assets/img/web/hero-casa.jpg" srcset="assets/img/web/hero-casa-800.webp 800w, assets/img/web/hero-casa.webp 940w" sizes="(max-width: 720px) 112vw, 72svh" alt="Residencia de tres plantas en travertino con losas oscuras y luz LED lineal, al atardecer" width="940" height="940">
           <div class="portada-nombre" aria-hidden="true">
             <span>C</span><span>A</span><span>R</span><span>D</span><span>O</span><span>N</span><span>A</span>
           </div>
           <!-- la misma foto, recortada a la silueta de la casa, tapa el nombre -->
-          <img class="portada-recorte" src="assets/img/web/hero-casa.jpg" alt="" width="940" height="940">
+          <img class="portada-recorte" src="assets/img/web/hero-casa.jpg" srcset="assets/img/web/hero-casa-800.webp 800w, assets/img/web/hero-casa.webp 940w" sizes="(max-width: 720px) 112vw, 72svh" alt="" width="940" height="940">
         </div>
         <div class="portada-velo"></div>
         <div class="portada-texto">
@@ -98,8 +100,9 @@
     </section>
 
     <!-- 4. Servicios: cada uno compuesto como el logotipo (nombre, línea de luz, descriptor) -->
-    <section class="servicios claro" id="servicios">
+    <section class="servicios claro" id="servicios" aria-labelledby="servicios-titulo">
       <div class="reticula">
+        <h2 class="solo-lector" id="servicios-titulo">Servicios</h2>
         <ol class="servicios-lista">
           <li class="revelar">
             <span class="etiqueta servicio-numero">01</span>
@@ -145,7 +148,7 @@
     <section class="fundador" aria-label="Fundador y recorrido de una obra">
       <div class="reticula fundador-reticula">
         <figure class="fundador-retrato revelar">
-          <img src="assets/img/web/nicolas-cardona.jpg" alt="Nicolás Cardona en la cocina del showroom de Cardona" width="1100" height="1954" loading="lazy">
+          <img src="assets/img/web/nicolas-cardona.jpg" srcset="assets/img/web/nicolas-cardona-800.webp 800w, assets/img/web/nicolas-cardona.webp 1100w" sizes="(max-width: 720px) 100vw, 45vw" alt="Nicolás Cardona en la cocina del showroom de Cardona" width="1100" height="1954" loading="lazy">
           <blockquote class="cita">
             <p>«Creo que crecer no se trata solo de hacer buenos proyectos, sino de aprender constantemente, tomar mejores decisiones y rodearte de personas que también quieran ir más lejos.»</p>
             <footer class="etiqueta">Nicolás Cardona · Arquitecto, diseñador y empresario</footer>
@@ -154,12 +157,12 @@
 
         <div class="recorrido revelar" data-recorrido>
           <div class="recorrido-marco">
-            <img src="assets/img/web/doble-altura-1.jpg" alt="Sala en doble altura con nicho de madera iluminado" data-recorrido-foto class="activa" loading="lazy">
-            <img src="assets/img/web/doble-altura-2.jpg" alt="Sala en doble altura con lámpara de esferas y biblioteca retroiluminada" data-recorrido-foto loading="lazy">
-            <img src="assets/img/web/doble-altura-3.jpg" alt="Sofás curvos blancos bajo la doble altura" data-recorrido-foto loading="lazy">
-            <img src="assets/img/web/doble-altura-4.jpg" alt="Comedor con mesa ovalada de mármol" data-recorrido-foto loading="lazy">
-            <img src="assets/img/web/doble-altura-5.jpg" alt="Cocina abierta con barra y vitrina iluminada" data-recorrido-foto loading="lazy">
-            <img src="assets/img/web/doble-altura-6.jpg" alt="Estudio con biblioteca de madera retroiluminada" data-recorrido-foto loading="lazy">
+            <img src="assets/img/web/doble-altura-1.jpg" srcset="assets/img/web/doble-altura-1-800.webp 800w, assets/img/web/doble-altura-1.webp 1300w" sizes="(max-width: 720px) 100vw, 50vw" width="1300" height="1733" alt="Sala en doble altura con nicho de madera iluminado" data-recorrido-foto class="activa" loading="lazy">
+            <img src="assets/img/web/doble-altura-2.jpg" srcset="assets/img/web/doble-altura-2-800.webp 800w, assets/img/web/doble-altura-2.webp 1200w" sizes="(max-width: 720px) 100vw, 50vw" width="1200" height="1600" alt="Sala en doble altura con lámpara de esferas y biblioteca retroiluminada" data-recorrido-foto loading="lazy">
+            <img src="assets/img/web/doble-altura-3.jpg" srcset="assets/img/web/doble-altura-3-800.webp 800w, assets/img/web/doble-altura-3.webp 1200w" sizes="(max-width: 720px) 100vw, 50vw" width="1200" height="1600" alt="Sofás curvos blancos bajo la doble altura" data-recorrido-foto loading="lazy">
+            <img src="assets/img/web/doble-altura-4.jpg" srcset="assets/img/web/doble-altura-4-800.webp 800w, assets/img/web/doble-altura-4.webp 1300w" sizes="(max-width: 720px) 100vw, 50vw" width="1300" height="1733" alt="Comedor con mesa ovalada de mármol" data-recorrido-foto loading="lazy">
+            <img src="assets/img/web/doble-altura-5.jpg" srcset="assets/img/web/doble-altura-5-800.webp 800w, assets/img/web/doble-altura-5.webp 1200w" sizes="(max-width: 720px) 100vw, 50vw" width="1200" height="1600" alt="Cocina abierta con barra y vitrina iluminada" data-recorrido-foto loading="lazy">
+            <img src="assets/img/web/doble-altura-6.jpg" srcset="assets/img/web/doble-altura-6-800.webp 800w, assets/img/web/doble-altura-6.webp 1300w" sizes="(max-width: 720px) 100vw, 50vw" width="1300" height="1733" alt="Estudio con biblioteca de madera retroiluminada" data-recorrido-foto loading="lazy">
             <button class="recorrido-boton recorrido-anterior" type="button" data-recorrido-paso="-1" aria-label="Espacio anterior">←</button>
             <button class="recorrido-boton recorrido-siguiente" type="button" data-recorrido-paso="1" aria-label="Espacio siguiente">→</button>
           </div>
@@ -174,8 +177,8 @@
 
     <!-- 7. Showroom: la luz se enciende donde pasa el cursor -->
     <section class="showroom" id="showroom" data-linterna>
-      <img class="showroom-foto showroom-apagada" src="assets/img/web/showroom.jpg" alt="" loading="lazy">
-      <img class="showroom-foto showroom-encendida" src="assets/img/web/showroom.jpg" alt="Showroom de Cardona en Torre Krystal: arcos con muestras de piedra, cocina lineal y luz LED" loading="lazy">
+      <img class="showroom-foto showroom-apagada" src="assets/img/web/showroom.jpg" srcset="assets/img/web/showroom-800.webp 800w, assets/img/web/showroom.webp 2000w" sizes="100vw" width="2000" height="1334" alt="" loading="lazy">
+      <img class="showroom-foto showroom-encendida" src="assets/img/web/showroom.jpg" srcset="assets/img/web/showroom-800.webp 800w, assets/img/web/showroom.webp 2000w" sizes="100vw" width="2000" height="1334" alt="Showroom de Cardona en Torre Krystal: arcos con muestras de piedra, cocina lineal y luz LED" loading="lazy">
       <div class="showroom-velo"></div>
       <div class="showroom-texto">
         <div class="seccion-cabeza">
@@ -208,21 +211,21 @@
 
         <div class="proyectos-lista">
           <article class="proyecto p1 revelar">
-            <div class="proyecto-foto"><img src="assets/img/web/showroom.jpg" alt="Showroom de Cardona en la Torre Krystal" loading="lazy"></div>
+            <div class="proyecto-foto"><img src="assets/img/web/showroom.jpg" srcset="assets/img/web/showroom-800.webp 800w, assets/img/web/showroom.webp 2000w" sizes="(max-width: 720px) 100vw, 50vw" width="2000" height="1334" alt="Showroom de Cardona en la Torre Krystal" loading="lazy"></div>
             <span class="luz"></span>
             <p class="etiqueta">01 · Interiorismo · Usaquén</p>
             <h3>Showroom Torre Krystal</h3>
             <p>Arcos de medio punto, estanterías de muestras y cocina lineal. Publicado en Revista AXXIS.</p>
           </article>
           <article class="proyecto p2 revelar">
-            <div class="proyecto-foto"><img src="assets/img/web/doble-altura-2.jpg" alt="Residencia de doble altura" loading="lazy"></div>
+            <div class="proyecto-foto"><img src="assets/img/web/doble-altura-2.jpg" srcset="assets/img/web/doble-altura-2-800.webp 800w, assets/img/web/doble-altura-2.webp 1200w" sizes="(max-width: 720px) 100vw, 50vw" width="1200" height="1600" alt="Residencia de doble altura" loading="lazy"></div>
             <span class="luz"></span>
             <p class="etiqueta">02 · Interiorismo y mobiliario</p>
             <h3>Residencia de doble altura</h3>
             <p>Madera, piedra y textiles claros alrededor de una doble altura con luz natural.</p>
           </article>
           <article class="proyecto p3 revelar">
-            <div class="proyecto-foto"><img src="assets/img/web/imperium-1.jpg" alt="Zona social de Casa Imperium" loading="lazy"></div>
+            <div class="proyecto-foto"><img src="assets/img/web/imperium-1.jpg" srcset="assets/img/web/imperium-1-800.webp 800w, assets/img/web/imperium-1.webp 1194w" sizes="(max-width: 720px) 100vw, 50vw" width="1194" height="1194" alt="Zona social de Casa Imperium" loading="lazy"></div>
             <span class="luz"></span>
             <p class="etiqueta">03 · Arquitectura e interiorismo</p>
             <h3>Casa Imperium</h3>
@@ -230,7 +233,7 @@
           </article>
           <!-- toda la tarjeta lleva a la página del proyecto -->
           <a class="proyecto p4 proyecto-con-pagina revelar" href="proyectos/tocarinda/">
-            <span class="proyecto-foto"><img src="assets/img/web/tocarinda-1.jpg" alt="Fachada de Tocarinda" loading="lazy"></span>
+            <span class="proyecto-foto"><img src="assets/img/web/tocarinda-1.jpg" srcset="assets/img/web/tocarinda-1-800.webp 800w, assets/img/web/tocarinda-1.webp 1440w" sizes="(max-width: 720px) 100vw, 50vw" width="1440" height="1438" alt="Fachada de Tocarinda" loading="lazy"></span>
             <span class="luz"></span>
             <span class="etiqueta">04 · Sabana de Bogotá · 202,39 m²</span>
             <h3>Tocarinda</h3>
@@ -238,7 +241,7 @@
             <span class="etiqueta proyecto-ver">Ver proyecto →</span>
           </a>
           <article class="proyecto p5 revelar">
-            <div class="proyecto-foto"><img src="assets/img/web/travertino-chimenea.jpg" alt="Sala con chimenea en la residencia en travertino" loading="lazy"></div>
+            <div class="proyecto-foto"><img src="assets/img/web/travertino-chimenea.jpg" srcset="assets/img/web/travertino-chimenea-800.webp 800w, assets/img/web/travertino-chimenea.webp 1254w" sizes="(max-width: 720px) 100vw, 50vw" width="1254" height="1254" alt="Sala con chimenea en la residencia en travertino" loading="lazy"></div>
             <span class="luz"></span>
             <p class="etiqueta">05 · Arquitectura · 3 plantas</p>
             <h3>Residencia en travertino</h3>
@@ -291,7 +294,7 @@
 
     <!-- 9. Cita inicial -->
     <section class="cita-inicial" id="cita">
-      <img class="cita-fondo" src="assets/img/web/travertino-sala.jpg" alt="" loading="lazy">
+      <img class="cita-fondo" src="assets/img/web/travertino-sala.jpg" srcset="assets/img/web/travertino-sala-800.webp 800w, assets/img/web/travertino-sala.webp 1254w" sizes="100vw" width="1254" height="1254" alt="" loading="lazy">
       <div class="cita-velo"></div>
       <div class="reticula cita-contenido">
         <div class="seccion-cabeza">

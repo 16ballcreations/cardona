@@ -4,11 +4,15 @@
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
   body.classList.add("cargando");
 
-  /* 0. Carga: la línea se enciende de 0 a 100 y la casa se ilumina */
+  /* 0. Carga: la línea se enciende de 0 a 100 y la casa se ilumina.
+     Solo en la primera visita de la sesión; después la página entra directo */
   const carga = document.querySelector(".carga");
   const luz = carga.querySelector(".carga-luz");
   const cifra = carga.querySelector(".carga-cifra");
-  const duracion = quieto ? 0 : 1600;
+  let vista = false;
+  try { vista = sessionStorage.getItem("cardona-carga") === "1"; sessionStorage.setItem("cardona-carga", "1"); } catch {}
+  if(vista) carga.classList.add("vista");
+  const duracion = quieto || vista ? 0 : 900;
   const inicio = performance.now();
   const curva = t => 1 - Math.pow(1 - t, 3);
 

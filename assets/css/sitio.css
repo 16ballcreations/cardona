@@ -44,17 +44,22 @@ ol, ul { padding: 0; list-style: none; }
 .claro .etiqueta { color: var(--nogal); }
 .claro .luz { background: var(--nogal); box-shadow: none; }
 
+/* Texto solo para lectores de pantalla y buscadores */
+.solo-lector { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
 .seccion-cabeza { grid-column: 1 / -1; display: grid; gap: 18px; margin-bottom: clamp(48px, 7vw, 112px); }
 .seccion-cabeza .luz { width: 100%; }
 
-/* Revelado al entrar en pantalla */
-.revelar {
+/* Revelado al entrar en pantalla. Solo con JavaScript (la clase js la pone el <head>):
+   sin él, el texto y las líneas se ven desde el principio */
+html:not(.js) .luz { transform: none; }
+.js .revelar {
   opacity: 0;
   transform: translateY(24px);
   filter: blur(6px);
   transition: opacity 1.1s var(--luz-curva), transform 1.1s var(--luz-curva), filter 1.1s var(--luz-curva);
 }
-.revelar.visible { opacity: 1; transform: none; filter: none; }
+.js .revelar.visible { opacity: 1; transform: none; filter: none; }
 
 /* Botón: bloque recto, la flecha en su propio cuadro */
 .boton {
@@ -106,6 +111,8 @@ ol, ul { padding: 0; list-style: none; }
 }
 .carga-cifra { margin-top: 20px; justify-self: end; font-variant-numeric: tabular-nums; }
 .carga.lista { opacity: 0; visibility: hidden; }
+.carga.vista { transition: none; }
+html:not(.js) .carga { display: none; }
 
 /* 1. Menú */
 .menu {
@@ -308,9 +315,9 @@ body.cargando .portada-nombre span { opacity: 0; }
 }
 .recorrido-pie > p:first-child { grid-area: texto; }
 .recorrido-espacio { grid-area: espacio; color: var(--travertino); min-width: 11ch; text-align: right; }
-.recorrido-marcas { grid-area: marcas; display: flex; gap: 6px; }
+.recorrido-marcas { grid-area: marcas; display: flex; gap: 6px; margin: -13px 0; }
 .recorrido-marcas button {
-  flex: 1; height: 18px; padding: 0; border: 0; background: none; cursor: pointer;
+  flex: 1; height: 44px; padding: 0; border: 0; background: none; cursor: pointer;
   position: relative;
 }
 .recorrido-marcas button::after {
@@ -494,7 +501,7 @@ body.cargando .portada-nombre span { opacity: 0; }
 /* Teléfono */
 @media (max-width: 720px) {
   .menu-cita { display: none; }
-  .menu-abrir { display: block; }
+  .menu-abrir { display: block; min-width: 44px; min-height: 44px; padding: 0 0 0 12px; text-align: right; }
   .menu-logo { font-size: 13px; letter-spacing: 0.5em; }
 
   .portada { height: 170svh; }
@@ -533,6 +540,6 @@ body.cargando .portada-nombre span { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .revelar { opacity: 1; transform: none; filter: none; transition: none; }
+  .js .revelar { opacity: 1; transform: none; filter: none; transition: none; }
   .portada-casa, .portada-nombre span, .portada-texto { transform: none !important; }
 }

@@ -1,6 +1,6 @@
 /* Cardona Arquitectura e Interiorismo: tokens de marca (ver ../../MARCA.md) */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400&display=swap");
+/* Inter Tight 200/300/400 se carga con un <link> en el <head> de cada página */
 
 :root {
   /* Color */

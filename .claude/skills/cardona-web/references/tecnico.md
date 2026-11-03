@@ -17,7 +17,7 @@
 | `node herramientas/servir.mjs 4330` | Ver el sitio en local: http://localhost:4330/ (y `/proyectos/<slug>/`). Si el puerto está ocupado, cambia el número | Sí (necesita Node; no cambia nada) |
 | `git add`, `git commit`, `git push` | Publicar | Sí, con el «sí» de Nicolás |
 | `git revert <commit>` | Deshacer algo ya publicado | Sí |
-| `node herramientas/optimizar-imagenes.mjs` | Regenerar las fotos desde los originales | **NUNCA**: sobrescribe las 21 fotos del sitio, los originales no están en el repositorio y necesita un paquete que no está instalado |
+| `node herramientas/optimizar-imagenes.mjs` | Regenerar las fotos desde los originales | **NUNCA**: sobrescribe las 21 fotos del sitio y sus WebP, los originales no están en el repositorio y necesita un paquete que no está instalado |
 | `npm install` (de cualquier cosa) | — | **NUNCA**: el repositorio no usa paquetes; crearía archivos que no deben subirse |
 | `git push --force`, `git rebase`, `git reset --hard` sobre lo ya subido, `git commit --amend` después de subir, `git filter-branch` | Reescribir la historia | **NUNCA**: borran el registro que permite deshacer |
 
