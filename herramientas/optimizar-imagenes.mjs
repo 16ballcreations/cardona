@@ -23,8 +23,14 @@ const LISTA = [
   ["instagram/DcTsw_llXgT-07.jpg", "doble-altura-6.jpg", 1300],
   ["instagram/DdkcqhpFXCZ-01.jpg", "imperium-1.jpg", 1300],
   ["instagram/DdkcqhpFXCZ-02.jpg", "imperium-2.jpg", 1300],
-  ["instagram/DLU6AjItjnf-01.jpg", "tocarinda-1.jpg", 1300],
-  ["instagram/DLU6AjItjnf-04.jpg", "tocarinda-2.jpg", 1300],
+  ["instagram/DLU6AjItjnf-01.jpg", "tocarinda-1.jpg", 1440],
+  ["instagram/DLU6AjItjnf-02.jpg", "tocarinda-2.jpg", 1440],
+  ["instagram/DLU6AjItjnf-03.jpg", "tocarinda-3.jpg", 1440],
+  ["instagram/DLU6AjItjnf-04.jpg", "tocarinda-4.jpg", 1440],
+  ["instagram/DLU6AjItjnf-05.jpg", "tocarinda-5.jpg", 1440],
+  ["instagram/DLU6AjItjnf-06.jpg", "tocarinda-6.jpg", 1440],
+  ["instagram/DLU6AjItjnf-07.jpg", "tocarinda-7.jpg", 1440],
+  ["instagram/DLU6AjItjnf-08.jpg", "tocarinda-8.jpg", 1440],
   ["instagram/DfKyUHqlSLY-07.jpg", "travertino-chimenea.jpg", 1300],
   ["instagram/DfKyUHqlSLY-02.jpg", "travertino-sala.jpg", 1300]
 ];
