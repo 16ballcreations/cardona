@@ -69,6 +69,9 @@ próximo proyecto»): de tú, sobrios. El retrato de Nicolás es la portada de s
 | Web propuesta | `https://16ballcreations.github.io/cardona/` |
 | Página de proyecto (plantilla) | `https://16ballcreations.github.io/cardona/proyectos/tocarinda/` |
 | Manual de marca | `https://16ballcreations.github.io/cardona/marca/` (se imprime a PDF, una sección por hoja A4) |
+| Auditoría de marca | `https://16ballcreations.github.io/cardona/auditoria/` (v1.0, 3 nov 2026: primera pasada sin sesión; faltan Gemini, Copilot y el LinkedIn de Nicolás) |
 
 La página de proyecto usa `assets/css/proyecto.css` y `assets/js/proyecto.js`; el manual vive en
 `marca/` con su propio `manual.css` y `manual.js`, y toma los tokens de `assets/css/marca.css`.
+La auditoría vive en `auditoria/`, usa los estilos y el script del manual y agrega `auditoria.css`.
+Su versión para agentes y las notas de campo no se suben (traen teléfonos y datos internos).

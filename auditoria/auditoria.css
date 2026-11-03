@@ -1,0 +1,85 @@
+/* Cardona · Auditoría de marca: lo que no trae manual.css (tarjetas de hallazgo, niveles, cifras).
+   Usa solo los tokens de ../assets/css/marca.css. */
+
+/* Niveles */
+.nivel { display: inline-flex; align-items: center; gap: 10px; }
+.nivel::before { content: ""; width: 8px; height: 8px; border: 1px solid currentColor; }
+.nivel-critico::before { background: var(--travertino); border-color: var(--travertino); }
+.nivel-alto::before { background: currentColor; opacity: 0.6; }
+.claro .nivel-critico::before { background: var(--nogal); border-color: var(--nogal); }
+
+/* Tarjetas de hallazgo */
+.hallazgos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 56px) var(--canal); }
+.hallazgo { border-top: 1px solid var(--borde-oscuro); padding-top: 20px; display: grid; gap: 14px; align-content: start; }
+.claro .hallazgo { border-top-color: var(--borde-claro); }
+.hallazgo-cabeza { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.hallazgo h3 { font-weight: 300; font-size: clamp(1.4rem, 2.2vw, 1.9rem); line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+.hallazgo p { font-size: 15px; line-height: 1.55; opacity: 0.85; }
+.hallazgo .comprobado {
+  font-size: 14px; line-height: 1.5; padding: 12px 14px;
+  border-left: 1px solid var(--travertino); background: rgb(215 179 153 / 0.08); opacity: 1;
+}
+.claro .hallazgo .comprobado { border-left-color: var(--nogal); background: rgb(84 70 57 / 0.07); }
+.comprobado b { font-weight: 400; }
+
+.tareas { display: grid; border-top: 1px solid var(--borde-oscuro); }
+.claro .tareas { border-top-color: var(--borde-claro); }
+.tareas li {
+  display: grid; grid-template-columns: 14px 1fr; gap: 14px; align-items: start;
+  padding: 10px 0; border-bottom: 1px solid var(--borde-oscuro); font-size: 15px; line-height: 1.45;
+}
+.claro .tareas li { border-bottom-color: var(--borde-claro); }
+.tareas li::before { content: ""; width: 12px; height: 12px; margin-top: 4px; border: 1px solid var(--travertino); }
+.claro .tareas li::before { border-color: var(--nogal); }
+.tareas .sugerencia { display: block; opacity: 0.65; font-size: 14px; margin-top: 2px; }
+
+.hechos { display: grid; gap: 6px; }
+.hechos li { font-size: 15px; line-height: 1.5; opacity: 0.85; padding-left: 18px; position: relative; }
+.hechos li::before { content: "·"; position: absolute; left: 4px; color: var(--travertino); }
+.claro .hechos li::before { color: var(--nogal); }
+
+/* Identidades */
+.identidades { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--canal); }
+.identidad { border-top: 1px solid var(--borde-oscuro); padding-top: 18px; display: grid; gap: 8px; align-content: start; }
+.claro .identidad { border-top-color: var(--borde-claro); }
+.identidad h4 { font-weight: 300; font-size: 1.35rem; line-height: 1.15; }
+.identidad p { font-size: 15px; line-height: 1.5; opacity: 0.8; }
+
+/* Cifras */
+.cifras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--canal); }
+.cifra-grande { display: grid; gap: 8px; border-top: 1px solid var(--borde-oscuro); padding-top: 18px; }
+.claro .cifra-grande { border-top-color: var(--borde-claro); }
+.cifra-grande .valor { font: 300 clamp(3rem, 7vw, 6rem) / 0.95 var(--familia); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.cifra-grande p { font-size: 15px; opacity: 0.8; max-width: 36ch; }
+
+/* Frase destacada */
+.destacado {
+  font: 300 clamp(1.6rem, 3.4vw, 2.8rem) / 1.15 var(--familia); letter-spacing: -0.015em;
+  text-wrap: balance; max-width: 26ch;
+}
+.destacado em { font-style: normal; color: var(--travertino); }
+.claro .destacado em { color: var(--nogal); }
+
+/* Estado en el inventario */
+.estado { white-space: nowrap; font: 200 11px / 1.4 var(--familia); letter-spacing: 0.2em; text-transform: uppercase; }
+.tabla .tenue-celda { opacity: 0.6; }
+.tabla td b { font-weight: 400; }
+.tabla-ia td:first-child, .tabla-ia td:last-child { white-space: nowrap; }
+.tabla-ia td:nth-child(2) { min-width: 22ch; }
+.tabla-ia td:nth-child(3) { min-width: 28ch; }
+.pendiente { opacity: 0.5; font-style: italic; }
+
+.preguntas { counter-reset: pregunta; }
+
+.fuentes { columns: 2; column-gap: var(--canal); font-size: 14px; line-height: 1.5; }
+.fuentes li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid var(--borde-claro); }
+.fuentes a { text-underline-offset: 3px; text-decoration-thickness: 1px; overflow-wrap: anywhere; }
+.fuentes span { display: block; opacity: 0.6; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .hallazgos, .identidades { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .cifras { grid-template-columns: 1fr; }
+  .fuentes { columns: 1; }
+}
