@@ -61,3 +61,14 @@ personas del cliente y son material de trabajo.
 Los textos de entrada vienen de su propia presentación («Bienvenidos a Cardona Arquitectura e
 Interiorismo…», «Te invitamos a conocer nuestro showroom…», «Agenda tu cita y hablemos de tu
 próximo proyecto»): de tú, sobrios. El retrato de Nicolás es la portada de su reel C-_pLbTpRQ9.
+
+## El bundle
+
+| Pieza | Dirección |
+|---|---|
+| Web propuesta | `https://16ballcreations.github.io/cardona/` |
+| Página de proyecto (plantilla) | `https://16ballcreations.github.io/cardona/proyectos/tocarinda/` |
+| Manual de marca | `https://16ballcreations.github.io/cardona/marca/` (se imprime a PDF, una sección por hoja A4) |
+
+La página de proyecto usa `assets/css/proyecto.css` y `assets/js/proyecto.js`; el manual vive en
+`marca/` con su propio `manual.css` y `manual.js`, y toma los tokens de `assets/css/marca.css`.
