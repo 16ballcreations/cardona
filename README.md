@@ -1,6 +1,6 @@
 # Cardona Arquitectura e Interiorismo — propuesta de web
 
-**Estado: primera versión publicada para ajustes (3 nov 2026), antes de la videollamada con el cliente.**
+**Estado: versión de ajustes publicada (3 nov 2026), antes de la videollamada con el cliente.**
 
 Maqueta navegable de la web propuesta para **Cardona Arquitectura e Interiorismo S.A.S.**
 (Bogotá, Usaquén), estudio de residencias de lujo que diseña, construye y amobla. Hecha por
@@ -9,7 +9,7 @@ Linktree llevan a una página caída.
 
 Se publica en `https://16ballcreations.github.io/cardona/`.
 
-## Concepto: «Casas que se encienden al caer la tarde»
+## Concepto: «Una visión distinta de la arquitectura»
 
 Su obra se fotografía siempre igual: de noche, piedra clara entre losas oscuras y una línea de
 LED bajo cada losa. La página toma esa **línea de luz** como único recurso gráfico (neón
@@ -27,7 +27,7 @@ lugar de píldoras, vidrio y esquinas redondeadas.
 | 3 | Fundador | Nicolás en el showroom (portada del reel C6OweAXOlGx) con la cita fijada en su Instagram; recorrido de la residencia con botones laterales |
 | 5 | Showroom | Torre Krystal: el espacio se enciende donde pasa el cursor; mención de Revista AXXIS |
 | 6 | Proyectos | Cinco en retícula escalonada más un índice |
-| 7 | Clientes | Reseñas de Google y Homify |
+| 7 | Clientes | Reseñas de Google y Homify, con la calificación de Homify (5,0) |
 | 8 | Cita inicial | El formulario arma el mensaje de WhatsApp; botón a Calendly |
 | 9 | Pie | Datos, redes y el nombre a todo lo ancho |
 

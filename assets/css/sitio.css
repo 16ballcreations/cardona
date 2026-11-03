@@ -81,6 +81,10 @@ ol, ul { padding: 0; list-style: none; }
 .boton:hover .boton-flecha { background: var(--travertino); color: var(--noche); }
 .boton-claro { background: transparent; color: var(--piedra); }
 .boton-claro .boton-flecha { background: var(--piedra); color: var(--noche); }
+/* sobre fotos que cambian de luz (el showroom): bloque oscuro sólido, siempre legible */
+.boton-noche { background: var(--noche); color: var(--piedra); border-color: rgb(215 179 153 / 0.5); }
+.boton-noche .boton-flecha { background: var(--travertino); color: var(--noche); }
+.boton-noche:hover .boton-flecha { background: var(--piedra); }
 .boton-ancho { width: 100%; justify-content: space-between; }
 .boton-linea { background: transparent; color: var(--noche); border-color: var(--noche); }
 
@@ -329,6 +333,11 @@ body.cargando .portada-nombre span { opacity: 0; }
   -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, #000 45%, transparent 100%);
           mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, #000 45%, transparent 100%);
 }
+/* sombra a la izquierda: el texto se lee aunque la luz se encienda detrás */
+.showroom-velo {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgb(9 9 0 / 0.78) 0%, rgb(9 9 0 / 0.55) 32%, transparent 62%);
+}
 .showroom-texto {
   position: relative;
   max-width: var(--ancho); width: 100%; margin: 0 auto;
@@ -340,7 +349,17 @@ body.cargando .portada-nombre span { opacity: 0; }
   max-width: 24ch;
   text-shadow: 0 2px 30px rgb(9 9 0 / 0.6);
 }
-.showroom-pie { margin-top: 40px; display: grid; gap: 14px; justify-items: start; }
+.showroom-pie { margin-top: 40px; display: grid; gap: 14px; justify-items: start; text-shadow: 0 1px 12px rgb(9 9 0 / 0.9), 0 0 2px rgb(9 9 0 / 0.8); }
+.showroom-pie .boton { text-shadow: none; margin-top: 0; }
+/* placa oscura bajo los datos, para que la luz del cursor no los borre */
+.showroom-placa {
+  display: grid; gap: 10px;
+  padding: 16px 20px;
+  background: rgb(9 9 0 / 0.78);
+  backdrop-filter: blur(6px);
+  border-left: 1px solid var(--travertino);
+  text-shadow: none;
+}
 .prensa { color: var(--travertino); }
 .showroom-pie .boton { margin-top: 12px; }
 .showroom-ayuda { position: absolute; right: var(--margen); bottom: 32px; opacity: 0.6; }
@@ -395,6 +414,8 @@ body.cargando .portada-nombre span { opacity: 0; }
 .testimonios { padding: var(--seccion) 0; }
 .testimonio-principal { grid-column: 1 / 11; display: grid; gap: 28px; }
 .testimonio-principal p { font-size: clamp(2rem, 4.6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; }
+/* Homify ocupa la columna libre junto a las reseñas */
+.calificacion-homify { grid-column: 1 / 5; align-self: start; margin-top: clamp(64px, 8vw, 120px); }
 .testimonios-lista {
   grid-column: 5 / -1;
   display: grid; grid-template-columns: 1fr 1fr; gap: var(--canal);
@@ -459,6 +480,7 @@ body.cargando .portada-nombre span { opacity: 0; }
   .menu-enlaces, .portada-leyenda { display: none; }
   .servicios-lista { grid-template-columns: 1fr 1fr; }
   .calificacion { grid-column: 1 / -1; }
+  .testimonios-lista { grid-column: 1 / -1; margin-top: 48px; }
   .fundador-retrato { grid-column: 1 / 7; }
   .recorrido { grid-column: 7 / -1; }
   .cita-tarjeta { grid-column: 1 / -1; }
@@ -495,7 +517,8 @@ body.cargando .portada-nombre span { opacity: 0; }
   .proyectos-intro { margin-top: 12px; }
   .p1, .p2, .p3, .p4, .p5, .p6 { grid-column: 1 / -1; margin-top: 0; }
 
-  .testimonio-principal, .testimonios-lista { grid-column: 1 / -1; }
+  .testimonio-principal, .testimonios-lista, .calificacion-homify { grid-column: 1 / -1; }
+  .testimonios-lista { margin-top: 48px; }
   .testimonios-lista { grid-template-columns: 1fr; }
 
   .cita-campos, .cita-acciones { grid-template-columns: 1fr; }
