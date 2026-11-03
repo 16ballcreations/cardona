@@ -383,9 +383,11 @@ body.cargando .portada-nombre span { opacity: 0; }
 .proyecto > p:not(.etiqueta) { opacity: 0.7; max-width: 44ch; }
 .proyecto .etiqueta { color: var(--travertino); }
 .proyecto-foto { display: block; overflow: hidden; background: var(--grafito); }
-.proyecto h3 a:hover { color: var(--travertino); }
+.proyecto-con-pagina { cursor: pointer; }
+.proyecto-con-pagina:hover h3 { color: var(--travertino); }
+.proyecto-con-pagina:hover .proyecto-foto img { transform: scale(1.04); filter: brightness(1); }
 .proyecto .proyecto-ver { color: var(--piedra); justify-self: start; padding: 10px 0 4px; border-bottom: 1px solid var(--travertino); }
-.proyecto .proyecto-ver:hover { color: var(--travertino); }
+.proyecto-con-pagina:hover .proyecto-ver { color: var(--travertino); }
 .proyecto-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--luz-curva), filter 1.4s var(--luz-curva); filter: brightness(0.82); }
 .proyecto:hover .proyecto-foto img { transform: scale(1.04); filter: brightness(1); }
 .proyecto .luz { width: 100%; }
