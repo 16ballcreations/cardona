@@ -62,7 +62,7 @@
       vigia.unobserve(e.target);
     }
   }, { rootMargin: "0px 0px -12% 0px" });
-  document.querySelectorAll(".revelar, .seccion-cabeza .luz, .pie-luz").forEach(el => vigia.observe(el));
+  document.querySelectorAll(".revelar, .seccion-cabeza .luz, .servicios-lista .luz, .pie-luz").forEach(el => vigia.observe(el));
 
   const secciones = ["proyectos", "estudio", "servicios", "showroom"].map(id => document.getElementById(id));
   const enlaces = new Map([...document.querySelectorAll(".menu-enlaces a")].map(a => [a.hash.slice(1), a]));
@@ -71,19 +71,41 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   secciones.forEach(s => activo.observe(s));
 
-  /* 5. Recorrido: el control pasa por los espacios de la residencia */
+  /* 5. Recorrido: botones a los lados, marcas abajo y deslizar en el teléfono */
   const recorrido = document.querySelector("[data-recorrido]");
   const fotos = [...recorrido.querySelectorAll("[data-recorrido-foto]")];
-  const control = recorrido.querySelector("[data-recorrido-control]");
   const nombre = recorrido.querySelector("[data-recorrido-nombre]");
+  const marcas = recorrido.querySelector("[data-recorrido-marcas]");
   const ESPACIOS = ["Sala", "Doble altura", "Estar", "Comedor", "Cocina", "Estudio"];
-  control.addEventListener("input", () => {
-    const i = Number(control.value);
-    fotos.forEach((f, j) => f.classList.toggle("activa", i === j));
-    nombre.textContent = `${ESPACIOS[i]} · ${i + 1}/${fotos.length}`;
+  let actual = 0;
+  const botones = fotos.map((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", `${ESPACIOS[i]}, espacio ${i + 1} de ${fotos.length}`);
+    b.addEventListener("click", () => mostrar(i));
+    marcas.append(b);
+    return b;
   });
+  function mostrar(i){
+    actual = (i + fotos.length) % fotos.length;
+    fotos.forEach((f, j) => f.classList.toggle("activa", j === actual));
+    botones.forEach((b, j) => b.setAttribute("aria-current", String(j === actual)));
+    nombre.textContent = `${ESPACIOS[actual]} · ${actual + 1}/${fotos.length}`;
+  }
+  recorrido.querySelectorAll("[data-recorrido-paso]").forEach(b =>
+    b.addEventListener("click", () => mostrar(actual + Number(b.dataset.recorridoPaso))));
+  let inicioX = null;
+  const marco = recorrido.querySelector(".recorrido-marco");
+  marco.addEventListener("touchstart", e => { inicioX = e.touches[0].clientX; }, { passive: true });
+  marco.addEventListener("touchend", e => {
+    if(inicioX === null) return;
+    const dx = e.changedTouches[0].clientX - inicioX;
+    if(Math.abs(dx) > 40) mostrar(actual + (dx < 0 ? 1 : -1));
+    inicioX = null;
+  });
+  mostrar(0);
 
-  /* 6. Cifras: cuentan hasta su valor al aparecer */
+  /* Calificación: cuenta hasta su valor al aparecer */
   const formato = new Intl.NumberFormat("es-CO");
   const contador = new IntersectionObserver(entradas => {
     for(const e of entradas){

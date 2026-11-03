@@ -13,7 +13,7 @@ const out = join(img, "web");
 /* [origen, destino, ancho máximo] */
 const LISTA = [
   ["instagram/DfKyUHqlSLY-01.jpg", "hero-casa.jpg", 1600],
-  ["extra/reel-C-_pLbTpRQ9.jpg", "nicolas-cardona.jpg", 900],
+  ["extra/reel-C6OweAXOlGx.jpg", "nicolas-cardona.jpg", 1100],
   ["extra/showroom.webp", "showroom.jpg", 2000],
   ["instagram/DcTsw_llXgT-06.jpg", "doble-altura-1.jpg", 1300],
   ["instagram/DcTsw_llXgT-01.jpg", "doble-altura-2.jpg", 1300],

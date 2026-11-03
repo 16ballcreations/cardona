@@ -23,9 +23,8 @@ lugar de píldoras, vidrio y esquinas redondeadas.
 |---|---|---|
 | 0 | Carga | La línea de luz va de 000 a 100 y la casa se ilumina |
 | 1 | Portada | Casa con el nombre detrás de su silueta; las letras se separan con el scroll |
-| 2 | Estudio y servicios | Fondo piedra, formato revista; su texto de bienvenida y sus seis servicios (diseño arquitectónico, interiorismo, mobiliario, interventorías, estudio de suelos, gestión de proyectos) |
-| 3 | Fundador | Retrato de Nicolás Cardona con cita; control para recorrer la residencia de doble altura |
-| 4 | Cifras | Conteo animado |
+| 2 | Estudio y servicios | Fondo piedra, formato revista; su texto de bienvenida, la calificación de Google (5,0) y sus seis servicios en 2 filas de 3, compuestos como el logotipo (diseño arquitectónico, interiorismo, mobiliario, interventorías, estudio de suelos, gestión de proyectos) |
+| 3 | Fundador | Nicolás en el showroom (portada del reel C6OweAXOlGx) con la cita fijada en su Instagram; recorrido de la residencia con botones laterales |
 | 5 | Showroom | Torre Krystal: el espacio se enciende donde pasa el cursor; mención de Revista AXXIS |
 | 6 | Proyectos | Cinco en retícula escalonada más un índice |
 | 7 | Clientes | Reseñas de Google y Homify |
@@ -51,7 +50,7 @@ personas del cliente y son material de trabajo.
 ## Por confirmar con el cliente
 
 - Año de fundación («Desde 2015», deducido de LinkedIn).
-- Una cita propia de Nicolás Cardona (la actual sale de un texto de la firma).
+- La cita de Nicolás viene de su publicación fijada «¿Quién es Nicolás Cardona?»; confirmar que la quiere en la web.
 - Nombre de la «Residencia en travertino» de la portada (no tiene nombre publicado).
 - Fotos originales en alta: casi todo son renders de Instagram; la portada tiene 940 px. Fotógrafo: Iván Ortiz Ponce.
 - La foto del showroom es la de Revista AXXIS; se repite en el proyecto 01.

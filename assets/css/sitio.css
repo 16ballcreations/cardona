@@ -224,35 +224,57 @@ body.cargando .portada-nombre span { opacity: 0; }
   text-wrap: pretty;
 }
 .estudio-nota { grid-column: 4 / -1; margin-top: 40px; }
+.calificacion {
+  grid-column: 4 / -1;
+  margin-top: clamp(48px, 6vw, 88px);
+  padding-top: 28px;
+  border-top: 1px solid rgb(9 9 0 / 0.2);
+  display: flex; align-items: end; gap: clamp(20px, 3vw, 40px);
+}
+.calificacion-cifra {
+  font-weight: 200; font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 0.85;
+  letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+}
+.calificacion-cifra small { font-size: 0.3em; letter-spacing: 0; margin-left: 6px; color: var(--nogal); }
+.calificacion-texto { display: grid; gap: 10px; padding-bottom: 6px; }
+.calificacion-estrellas { color: var(--nogal); letter-spacing: 0.3em; font-size: 15px; }
+.calificacion:hover .etiqueta { color: var(--noche); }
 
 /* 4. Servicios */
 .servicios { padding: 0 0 var(--seccion); }
-/* seis servicios en 3 x 2: cada uno con su línea arriba, como un índice de revista */
+/* seis servicios en 2 filas de 3, cada uno compuesto como el logotipo:
+   el nombre grande, la línea de luz y el descriptor en la voz pequeña */
 .servicios-lista {
   grid-column: 1 / -1;
   display: grid; grid-template-columns: repeat(3, 1fr);
-  column-gap: var(--canal); row-gap: 56px;
+  column-gap: var(--canal); row-gap: clamp(56px, 7vw, 104px);
 }
 .servicios-lista li {
-  border-top: 1px solid rgb(9 9 0 / 0.2);
-  padding-top: 24px;
-  display: grid; gap: 12px; align-content: start;
+  display: grid; justify-items: center; align-content: start; gap: 18px;
+  text-align: center;
+  padding: 0 clamp(8px, 2vw, 32px);
 }
-.servicios-lista h3 { font-weight: 300; font-size: clamp(1.5rem, 2.2vw, 2.1rem); line-height: 1.1; letter-spacing: -0.01em; }
-.servicios-lista p { font-size: 16px; color: var(--grafito); }
+.servicio-numero { opacity: 0.8; }
+.servicios-lista h3 {
+  font-weight: 300; font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  line-height: 1.05; letter-spacing: -0.01em;
+  min-height: 2.1em; display: grid; align-items: end;
+}
+.servicios-lista .luz { width: 100%; max-width: 320px; }
+.servicios-lista .etiqueta:last-child { max-width: 30ch; line-height: 1.8; font-size: 12px; font-weight: 300; }
 
 /* 5. Fundador y recorrido */
 .fundador { padding: var(--seccion) 0; }
 .fundador-reticula { row-gap: var(--canal); align-items: stretch; }
 .fundador-retrato { grid-column: 1 / 6; position: relative; background: var(--grafito); }
-.fundador-retrato img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; aspect-ratio: 4 / 5; filter: saturate(0.85); }
+.fundador-retrato img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; aspect-ratio: 3 / 4; filter: saturate(0.85); }
 .cita {
   position: absolute; left: 20px; right: 20px; bottom: 20px;
   background: var(--piedra); color: var(--noche);
   padding: 24px;
   display: grid; gap: 16px;
 }
-.cita p { font-size: clamp(1.15rem, 1.5vw, 1.4rem); line-height: 1.3; }
+.cita p { font-size: clamp(1rem, 1.2vw, 1.15rem); line-height: 1.45; }
 .cita footer { color: var(--nogal); }
 
 .recorrido { grid-column: 6 / -1; display: grid; grid-template-rows: 1fr auto; border: 1px solid var(--grafito); }
@@ -262,35 +284,36 @@ body.cargando .portada-nombre span { opacity: 0; }
   opacity: 0; transition: opacity 0.7s var(--luz-curva);
 }
 .recorrido-marco img.activa { opacity: 1; }
+.recorrido-boton {
+  position: absolute; top: 50%; z-index: 1;
+  width: 52px; height: 52px; margin-top: -26px;
+  display: grid; place-items: center;
+  background: rgb(9 9 0 / 0.72); color: var(--travertino);
+  border: 1px solid rgb(215 179 153 / 0.35);
+  font: 300 18px / 1 var(--familia);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.recorrido-boton:hover { background: var(--travertino); color: var(--noche); }
+.recorrido-anterior { left: 16px; }
+.recorrido-siguiente { right: 16px; }
 .recorrido-pie {
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px 24px;
+  grid-template-areas: "texto espacio" "marcas marcas";
   padding: 20px 24px; border-top: 1px solid var(--grafito);
 }
-.recorrido-espacio { color: var(--travertino); min-width: 11ch; text-align: right; }
-.recorrido-control input {
-  -webkit-appearance: none; appearance: none;
-  width: 100%; height: 24px; background: transparent; cursor: ew-resize;
+.recorrido-pie > p:first-child { grid-area: texto; }
+.recorrido-espacio { grid-area: espacio; color: var(--travertino); min-width: 11ch; text-align: right; }
+.recorrido-marcas { grid-area: marcas; display: flex; gap: 6px; }
+.recorrido-marcas button {
+  flex: 1; height: 18px; padding: 0; border: 0; background: none; cursor: pointer;
+  position: relative;
 }
-.recorrido-control input::-webkit-slider-runnable-track { height: 1px; background: var(--grafito); }
-.recorrido-control input::-moz-range-track { height: 1px; background: var(--grafito); }
-.recorrido-control input::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 28px; height: 6px; margin-top: -2.5px;
-  background: var(--travertino); box-shadow: var(--luz-brillo); border: 0;
+.recorrido-marcas button::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: var(--grafito); transition: background 0.4s, box-shadow 0.4s;
 }
-.recorrido-control input::-moz-range-thumb { width: 28px; height: 6px; background: var(--travertino); border: 0; border-radius: 0; }
-
-/* 6. Cifras */
-.cifras { padding: 0 0 var(--seccion); }
-.cifras-lista { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--canal); }
-.cifras-lista > div { border-left: 1px solid var(--grafito); padding-left: 24px; display: grid; gap: 20px; }
-.cifras-lista dd {
-  font-weight: 200;
-  font-size: clamp(3.5rem, 8vw, 8rem);
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-}
-.cifras-lista small { font-size: 0.3em; letter-spacing: 0; margin-left: 6px; color: var(--travertino); }
+.recorrido-marcas button[aria-current="true"]::after { background: var(--luz); box-shadow: var(--luz-brillo); }
 
 /* 7. Showroom */
 .showroom {
@@ -435,10 +458,9 @@ body.cargando .portada-nombre span { opacity: 0; }
 @media (max-width: 1024px) {
   .menu-enlaces, .portada-leyenda { display: none; }
   .servicios-lista { grid-template-columns: 1fr 1fr; }
+  .calificacion { grid-column: 1 / -1; }
   .fundador-retrato { grid-column: 1 / 7; }
   .recorrido { grid-column: 7 / -1; }
-  .recorrido-pie { grid-template-columns: 1fr auto; }
-  .recorrido-pie > p:first-child { grid-column: 1 / -1; }
   .cita-tarjeta { grid-column: 1 / -1; }
 }
 
@@ -456,12 +478,15 @@ body.cargando .portada-nombre span { opacity: 0; }
   .portada-pie { flex-direction: column; align-items: start; gap: 20px; }
 
   .estudio-frase, .estudio-nota { grid-column: 1 / -1; }
-  .servicios-lista { grid-template-columns: 1fr; row-gap: 32px; }
+  .servicios-lista { grid-template-columns: 1fr; row-gap: 56px; }
+  .servicios-lista h3 { min-height: 0; }
+  .calificacion { align-items: center; }
+  .recorrido-boton { width: 44px; height: 44px; margin-top: -22px; }
 
   .fundador-retrato, .recorrido { grid-column: 1 / -1; }
+  .cita { position: static; }
   .recorrido-marco { min-height: 0; aspect-ratio: 3 / 4; }
 
-  .cifras-lista { grid-template-columns: 1fr; gap: 48px; }
 
   .showroom { min-height: 110svh; }
   .showroom-ayuda { display: none; }
