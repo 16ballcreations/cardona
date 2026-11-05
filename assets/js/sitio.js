@@ -17,7 +17,7 @@
   const curva = t => 1 - Math.pow(1 - t, 3);
 
   function avanzar(ahora){
-    const t = duracion ? Math.min((ahora - inicio) / duracion, 1) : 1;
+    const t = duracion ? Math.min(Math.max(ahora - inicio, 0) / duracion, 1) : 1;
     const v = curva(t);
     luz.style.transform = `scaleX(${v})`;
     cifra.textContent = String(Math.round(v * 100)).padStart(3, "0");
@@ -124,7 +124,7 @@
       if(quieto){ pintar(meta); continue; }
       const t0 = performance.now();
       const paso = ahora => {
-        const t = Math.min((ahora - t0) / 1800, 1);
+        const t = Math.min(Math.max(ahora - t0, 0) / 1800, 1);
         pintar(meta * curva(t));
         if(t < 1) requestAnimationFrame(paso);
       };
